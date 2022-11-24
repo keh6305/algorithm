@@ -13,8 +13,20 @@ public class lv0
         int num1 = 10;
         int num2 = 2;
 
-        int result1 = num1 / num2;
+        int result = num1 / num2;
 
-        assertThat(result1).isEqualTo(5);
+        assertThat(result).isEqualTo(5);
+    }
+
+    // 두 수의 차
+    @Test
+    public void subtraction()
+    {
+        int num1 = 2;
+        int num2 = 3;
+
+        int result = num1 - num2;
+
+        assertThat(result).isEqualTo(-1);
     }
 }
