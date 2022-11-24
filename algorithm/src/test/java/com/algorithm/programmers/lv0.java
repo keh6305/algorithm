@@ -29,4 +29,15 @@ public class lv0
 
         assertThat(result).isEqualTo(-1);
     }
+
+    // 나이구하기
+    @Test
+    public void age()
+    {
+        int age = 40;
+
+        int result = 2022 - (age - 1);
+
+        assertThat(result).isEqualTo(1983);
+    }
 }
