@@ -148,4 +148,19 @@ public class lv0
 
         System.out.println("result = " + result);
     }
+
+    // 피자 나누기
+    @Test
+    public void dividePizza()
+    {
+        int n = 15;
+        int i = 1;
+
+        while ((7 * i) < n)
+        {
+            i++;
+        }
+
+        System.out.println("i = " + i);
+    }
 }
