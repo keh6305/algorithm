@@ -181,4 +181,26 @@ public class lv0
             System.out.println("rArr[" + i + "] = " + rArr[i]);
         }
     }
+
+    // 짝수, 홀수 확인
+    @Test
+    public void checkOddEven()
+    {
+        int[] arr = {1, 2, 3, 4, 5};
+        int[] result = {0, 0};
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i] % 2 == 0)
+            {
+                result[0] += 1;
+            }
+            else
+            {
+                result[1] += 1;
+            }
+        }
+
+        System.out.println("짝수의 갯수 : " + result[0] + ", 홀수의 갯수 : " + result[1]);
+    }
 }
