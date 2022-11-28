@@ -163,4 +163,22 @@ public class lv0
 
         System.out.println("i = " + i);
     }
+
+    // 배열 뒤집기
+    @Test
+    public void arrayReverse()
+    {
+        int arr[] = {1, 2, 3, 4, 5};
+        int rArr[] = new int[arr.length];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            rArr[arr.length - (i + 1)] = arr[i];
+        }
+
+        for(int i = 0; i < rArr.length; i++)
+        {
+            System.out.println("rArr[" + i + "] = " + rArr[i]);
+        }
+    }
 }
