@@ -195,6 +195,13 @@ public class lv0
         }
 
         assertThat(result).isEqualTo("daerb");
+
+        // StringBuilder reverse
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.reverse();
+
+        assertThat(sb).isEqualTo("daerb");
     }
 
     // 짝수, 홀수 확인
