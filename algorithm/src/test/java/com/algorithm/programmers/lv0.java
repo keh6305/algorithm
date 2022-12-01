@@ -166,7 +166,7 @@ public class lv0
 
     // 배열 뒤집기
     @Test
-    public void arrayReverse()
+    public void reverseArray()
     {
         int arr[] = {1, 2, 3, 4, 5};
         int rArr[] = new int[arr.length];
@@ -180,6 +180,21 @@ public class lv0
         {
             System.out.println("rArr[" + i + "] = " + rArr[i]);
         }
+    }
+
+    // 문자열 뒤집기
+    @Test
+    public void reverseString()
+    {
+        String str = "bread";
+        String result = "";
+
+        for(int i = (str.length()); i > 0 ; i--)
+        {
+            result += str.substring(i - 1, i);
+        }
+
+        assertThat(result).isEqualTo("daerb");
     }
 
     // 짝수, 홀수 확인
