@@ -32,5 +32,4 @@ out/
 !**/src/test/**/out/
 
 .gradle/
-.gradle/7.4/
 build/
