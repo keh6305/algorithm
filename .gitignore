@@ -35,4 +35,5 @@ out/
 .gradle/*
 .gradle/**
 gradle
+gradle/
 build/
