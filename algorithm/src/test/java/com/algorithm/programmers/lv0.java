@@ -225,4 +225,19 @@ public class lv0
 
         System.out.println("짝수의 갯수 : " + result[0] + ", 홀수의 갯수 : " + result[1]);
     }
+    
+    // 배열 두배만들기
+    @Test
+    public void doubleArray()
+    {
+        int arr[] = {1, 2, 3, 4, 5};
+        int result[] = new int[arr.length]; 
+        
+        for(int i = 0; i < arr.length; i++)
+        {
+            result[i] = arr[i] * 2;
+
+            System.out.println("result[" + i + "] = " + result[i]);
+        }
+    }
 }
