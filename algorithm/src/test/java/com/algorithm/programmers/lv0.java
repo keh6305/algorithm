@@ -240,4 +240,46 @@ public class lv0
             System.out.println("result[" + i + "] = " + result[i]);
         }
     }
+
+    // 사분면 구하기
+    @Test
+    public void quadrant()
+    {
+        int arr[] = {3, 2};
+        int result = 0;
+
+        if(arr[0] > 0 && arr[1] > 0)
+        {
+            result = 1;
+        }
+        else if(arr[0] < 0 && arr[1] > 0)
+        {
+            result = 2;
+        }
+        else if(arr[0] < 0 && arr[1] < 0)
+        {
+            result = 3;
+        }
+        else
+        {
+            result = 4;
+        }
+
+        assertThat(result).isEqualTo(1);
+    }
+
+    // 문자열 글자수 구하기
+    @Test
+    public void stringCount()
+    {
+        String arr[] = {"We", "are", "the", "world!"};
+        int result[] = new int[arr.length];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            result[i] = arr[i].length();
+
+            System.out.println("result[" + i + "] = " + result[i]);
+        }
+    }
 }
