@@ -126,21 +126,57 @@ public class lv1
         assertThat(p).isEqualTo(y);
     }
 
-    public int solution(int[] absolutes, boolean[] signs) {
-        int answer = 0;
+    // 간격 배열 구하기
+    @Test
+    public void termArray()
+    {
+        int x = 2;
+        int n = 5;
 
-        for(int i = 0; i < absolutes.length; i++)
+        long result[] = new long[n];
+
+        for(int i = 0; i < n; i++)
         {
-            if(signs[i] == true)
-            {
-                answer += absolutes[i];
-            }
-            else
-            {
-                answer -= absolutes[i];
-            }
+            result[i] = x + ((long)x * i);
+
+            System.out.println("result = " + result[i]);
+        }
+    }
+
+    // 문자열 숫자로 전환
+    @Test
+    public void stringToInt()
+    {
+        int result = 0;
+        String str = "-12345";
+
+        result = Integer.parseInt(str);
+
+        assertThat(result).isEqualTo(-12345);
+    }
+
+    // 하샤드수
+    @Test
+    public void hashadsNumber()
+    {
+        boolean result = true;
+
+        int num = 18;
+        int origin = num;
+        int sum = 0;
+
+        while (num > 0)
+        {
+            sum += (num % 10);
+
+            num = num / 10;
         }
 
-        return answer;
+        if(origin % sum != 0)
+        {
+            result = false;
+        }
+
+        assertThat(result).isEqualTo(true);
     }
 }
