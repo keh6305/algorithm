@@ -179,4 +179,19 @@ public class lv1
 
         assertThat(result).isEqualTo(true);
     }
+
+    // 나머지가 1이 되는 수 찾기
+    @Test
+    public void divisionOne()
+    {
+        int num = 12;
+        int result = 1;
+
+        while((num % result) != 1)
+        {
+            result++;
+        }
+
+        assertThat(result).isEqualTo(11);
+    }
 }
