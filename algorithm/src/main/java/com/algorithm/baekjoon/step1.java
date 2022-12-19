@@ -17,6 +17,6 @@ public class step1
         System.out.print("b = ");
         b = sc.nextInt();
 
-        System.out.println(a + b);
+        System.out.println(a - b);
     }
 }
