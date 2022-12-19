@@ -2,6 +2,10 @@ package com.algorithm.programmers;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class lv0
@@ -149,14 +153,29 @@ public class lv0
         System.out.println("result = " + result);
     }
 
-    // 피자 나누기
+    // 피자 나누기1
     @Test
-    public void dividePizza()
+    public void dividePizza1()
     {
         int n = 15;
         int i = 1;
 
         while ((7 * i) < n)
+        {
+            i++;
+        }
+
+        System.out.println("i = " + i);
+    }
+
+    // 피자 나누기2
+    @Test
+    public void dividePizza2()
+    {
+        int n = 10;
+        int i = 1;
+
+        while ((i * 6) % n != 0)
         {
             i++;
         }
@@ -281,5 +300,41 @@ public class lv0
 
             System.out.println("result[" + i + "] = " + result[i]);
         }
+    }
+
+    // 옹알이
+    @Test
+    public void babbling()
+    {
+        String sArr[] = {"ayaye", "uuuma", "ye", "yemawoo", "ayaa"};
+        String bArr[] = {"aya", "ye", "woo", "ma"};
+
+        int result = 0;
+
+        for(int i = 0; i < sArr.length; i++)
+        {
+            for(int j = 0; j < bArr.length; j++)
+            {
+                if((sArr[i].replaceAll(" ", "").length() == 0))
+                {
+                    result++;
+
+                    break;
+                }
+                else
+                {
+                    if(sArr[i].contains(bArr[j]))
+                    {
+                        sArr[i] = sArr[i].replaceAll(bArr[j], " ");
+
+                        j = 0;
+
+                        continue;
+                    }
+                }
+            }
+        }
+
+        System.out.println("result = " + result);
     }
 }
