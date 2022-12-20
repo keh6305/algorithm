@@ -212,7 +212,9 @@ public class lv1
         }
 
         Arrays.sort(arr, Collections.reverseOrder());
-        
+
+        String descArr[] = new String[str.length()];
+
         String str2 = "";
 
         for(int i = 0; i < arr.length; i++)
@@ -222,6 +224,21 @@ public class lv1
 
         result = Long.parseLong(str2);
 
-        System.out.println("str2 = " + str2);
+        System.out.println("result = " + result);
+    }
+
+    // 내림차순으로 정렬2
+    @Test
+    public void descOrder2()
+    {
+        long n = 3463825;
+
+        String[] list = String.valueOf(n).split("");
+        Arrays.sort(list);
+
+        StringBuilder sb = new StringBuilder();
+        for (String aList : list) sb.append(aList);
+
+        System.out.println(Long.parseLong(sb.reverse().toString()));
     }
 }
