@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.UpperCase;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -193,5 +194,34 @@ public class lv1
         }
 
         assertThat(result).isEqualTo(11);
+    }
+
+    // 내림차순으로 정렬
+    @Test
+    public void descOrder()
+    {
+        long num = 3463825;
+        long result = 0;
+
+        String str = String.valueOf(num);
+        String arr[] = new String[str.length()];
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            arr[i] = String.valueOf(str.charAt(i));
+        }
+
+        Arrays.sort(arr, Collections.reverseOrder());
+        
+        String str2 = "";
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            str2 += arr[i];
+        }
+
+        result = Long.parseLong(str2);
+
+        System.out.println("str2 = " + str2);
     }
 }
