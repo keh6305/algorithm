@@ -241,4 +241,35 @@ public class lv1
 
         System.out.println(Long.parseLong(sb.reverse().toString()));
     }
+
+    // 두 정수의 사이 값 더하기
+    @Test
+    public void addBetweenNumber()
+    {
+        int a = 5;
+        int b = 2;
+
+        long result = 0;
+
+        int min = 0;
+        int max = 0;
+
+        if(a <= b)
+        {
+            min = a;
+            max = b;
+        }
+        else
+        {
+            min = b;
+            max = a;
+        }
+
+        for(int i = min; i < (max + 1); i++)
+        {
+            result += i;
+        }
+
+        System.out.println("result = " + result);
+    }
 }
