@@ -51,18 +51,36 @@ public class lv2
     @Test
     public void jadenCase()
     {
-        String s = "3people unFollowed me ";
+        String s = "3people  unFollowed me ";
+        String result = "";
 
         String arr[] = s.toLowerCase().split(" ");
-        String result = "";
 
         for (int i = 0; i < arr.length; i++)
         {
-            System.out.println("arr[i] = " + arr[i]);
-            String str1 = arr[i].substring(0, 1).toUpperCase();
-            String str2 = arr[i].substring(1);
+            if(arr[i].equals(""))
+            {
+                result += " ";
+            }
+            else
+            {
+                String str1 = arr[i].substring(0, 1).toUpperCase();
+                String str2 = arr[i].substring(1);
 
-            result += str1 + str2 + " ";
+                if(i == arr.length - 1)
+                {
+                    result += str1 + str2;
+                }
+                else
+                {
+                    result += str1 + str2 + " ";
+                }
+            }
+        }
+
+        if(s.charAt(s.length() - 1) == ' ')
+        {
+            result += " ";
         }
 
         System.out.println("result = " + result);
