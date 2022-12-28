@@ -272,4 +272,37 @@ public class lv1
 
         System.out.println("result = " + result);
     }
+
+    // Collatz 추측
+    @Test
+    public void collatz()
+    {
+        long num = 626331;
+        int result = 0;
+
+        while(num != 1)
+        {
+            if(result >= 500)
+            {
+                result = -1;
+
+                break;
+            }
+
+            if((num % 2) == 0)
+            {
+                num = num / 2;
+
+                result++;
+            }
+            else
+            {
+                num = (num * 3) + 1;
+
+                result++;
+            }
+        }
+
+        System.out.println("result = " + result);
+    }
 }
