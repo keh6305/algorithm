@@ -108,4 +108,59 @@ public class lv2
 
         System.out.println("result = " + result);
     }
+
+    // 올바른 괄호 확인
+    @Test
+    public void correctBracket()
+    {
+        String str = "()())(()";
+
+        boolean result = true;
+        int num = 0;
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            if(num == 0)
+            {
+                if(str.charAt(i) == '(')
+                {
+                    num++;
+                }
+                else
+                {
+                    num--;
+
+                    break;
+                }
+            }
+            else if(num > 0)
+            {
+                if(str.charAt(i) == '(')
+                {
+                    num++;
+                }
+                else
+                {
+                    num--;
+                }
+            }
+            else
+            {
+                num--;
+
+                break;
+            }
+        }
+
+        if(num == 0)
+        {
+            result = true;
+        }
+        else
+        {
+            result = false;
+        }
+
+        System.out.println("result = " + result);
+    }
 }
