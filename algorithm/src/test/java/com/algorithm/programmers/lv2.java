@@ -2,6 +2,9 @@ package com.algorithm.programmers;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class lv2
 {
     // 최댓값, 최솟값 구하기
@@ -81,6 +84,26 @@ public class lv2
         if(s.charAt(s.length() - 1) == ' ')
         {
             result += " ";
+        }
+
+        System.out.println("result = " + result);
+    }
+
+    // 최솟값 만들기
+    @Test
+    public void makeMin()
+    {
+        int arrA[] = {1, 4, 2};
+        int arrB[] = {5, 4, 4};
+
+        Arrays.sort(arrA);
+        Arrays.sort(arrB);
+
+        int result = 0;
+
+        for(int i = 0; i < arrA.length; i++)
+        {
+            result = result + (arrA[i] * arrB[arrB.length - (i + 1)]);
         }
 
         System.out.println("result = " + result);
