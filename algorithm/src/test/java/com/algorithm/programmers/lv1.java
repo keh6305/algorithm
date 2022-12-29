@@ -305,4 +305,22 @@ public class lv1
 
         System.out.println("result = " + result);
     }
+
+    // 이름찾기
+    @Test
+    public void findName()
+    {
+        String arr[] = {"Jane", "Kim"};
+        String result = "";
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i].equals("Kim"))
+            {
+                result = "김서방은 " + i + "에 있다.";
+            }
+        }
+
+        System.out.println("result = " + result);
+    }
 }
