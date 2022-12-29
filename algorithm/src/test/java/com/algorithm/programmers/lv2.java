@@ -163,4 +163,40 @@ public class lv2
 
         System.out.println("result = " + result);
     }
+
+    // 2진변환
+    @Test
+    public void changeBinary()
+    {
+        String str = "1111111";
+        int result[] = new int[2];
+
+        while (!str.equals("1"))
+        {
+            for(int i = 0; i < str.length(); i++)
+            {
+                if(str.charAt(i) == '0')
+                {
+                    result[1]++;
+                }
+            }
+            
+            result[0]++;
+
+            str = str.replace("0", "");
+
+            int length = str.length();
+            String binary = "";
+
+            while (length != 1)
+            {
+                binary = (length % 2) + binary;
+                length = length / 2;
+            }
+
+            str = 1 + binary;
+        }
+
+        System.out.println("result = [" + result[0] + "] [" + result[1] + "]");
+    }
 }
