@@ -2,8 +2,9 @@ package com.algorithm.programmers;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.List;
 
 public class lv2
 {
@@ -237,5 +238,41 @@ public class lv2
         }
 
         System.out.println("result = " + result);
+    }
+
+    // 피보나치 수
+    @Test
+    public void fibonacci()
+    {
+        int num = 5;
+        int answer = 0;
+
+        long result = 0;
+
+        List<Integer> list = new ArrayList<Integer>();
+
+        list.add(num - 1);
+        list.add(num - 2);
+
+        while(list.size() != 0)
+        {
+            if(list.get(0) > 2)
+            {
+                list.add(list.get(0) - 1);
+                list.add(list.get(0) - 2);
+
+                list.remove(0);
+            }
+            else
+            {
+                list.remove(0);
+
+                result++;
+            }
+        }
+
+        answer = (int)(result % 1234567);
+
+        System.out.println("answer = " + answer);
     }
 }
