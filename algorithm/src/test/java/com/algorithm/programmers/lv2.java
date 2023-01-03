@@ -180,7 +180,7 @@ public class lv2
                     result[1]++;
                 }
             }
-            
+
             result[0]++;
 
             str = str.replace("0", "");
@@ -198,5 +198,44 @@ public class lv2
         }
 
         System.out.println("result = [" + result[0] + "] [" + result[1] + "]");
+    }
+
+    // 연속 수로 표현
+    @Test
+    public void continueNumber()
+    {
+        int num = 15;
+        int sum = 0;
+        int result = 1;
+
+        for(int i = 1; i <= num; i++)
+        {
+            int add = 1;
+
+            sum = i;
+
+            while(sum <= num)
+            {
+                sum = sum + (i + add);
+                add++;
+                
+                if(sum == num)
+                {
+                    result++;
+
+                    break;
+                }
+                else if(sum < num)
+                {
+                    continue;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        System.out.println("result = " + result);
     }
 }
