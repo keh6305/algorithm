@@ -245,33 +245,75 @@ public class lv2
     public void fibonacci()
     {
         int num = 5;
-        int answer = 0;
+        int result = 0;
 
-        long result = 0;
+        int num1 = 1;
+        int num2 = 0;
 
-        List<Integer> list = new ArrayList<Integer>();
-
-        list.add(num - 1);
-        list.add(num - 2);
-
-        while(list.size() != 0)
+        for(int i = 2; i <= num; i++)
         {
-            if(list.get(0) > 2)
-            {
-                list.add(list.get(0) - 1);
-                list.add(list.get(0) - 2);
+            result = num1 + num2;
 
-                list.remove(0);
-            }
-            else
-            {
-                list.remove(0);
-
-                result++;
-            }
+            num2 = num1;
+            num1 = result;
         }
 
-        answer = (int)(result % 1234567);
+        System.out.println("result = " + result);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Test
+    public void solution()
+    {
+        int n = 999;
+        int answer = 0;
+        //n이 3일때
+        //f(3) = f(1)+f(2) = 1+1 = 2이므로 숫자 초기화
+        int num1 = 1;
+        int num2 = 1;
+
+        if(n == 1 || n == 2)
+        {
+            answer = 1;
+        }
+        else
+        {
+            for(int i = 3; i <= n; i++)
+            {
+                answer = (num1 + num2) % 1234567;
+                num1 = num2;//전전수
+                num2 = answer;//전수
+
+                System.out.println("a = " + answer + ", num1 = " + num1 + ", num2 = " + num2);
+            }
+        }
 
         System.out.println("answer = " + answer);
     }
