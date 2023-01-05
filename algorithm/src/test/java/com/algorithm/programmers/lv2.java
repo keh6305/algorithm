@@ -290,4 +290,35 @@ public class lv2
 
         System.out.println("result = " + result);
     }
+
+
+    // 카펫 배열 찾기
+    @Test
+    public void carpet()
+    {
+        int num1 = 10;
+        int num2 = 2;
+        int sum = num1 + num2;
+
+        int result[] = new int[2];
+
+        for1 : for(int i = 1; i < sum; i++)
+        {
+            for2 : for(int j = 1; j < sum; j++)
+            {
+                if((i * j) == sum)
+                {
+                    if(((i -2) * (j - 2)) == num2)
+                    {
+                        result[0] = j;
+                        result[1] = i;
+
+                        break for1;
+                    }
+                }
+            }
+        }
+
+        System.out.println("result = [" + result[0] + "][" + result[1] +"]");
+    }
 }
