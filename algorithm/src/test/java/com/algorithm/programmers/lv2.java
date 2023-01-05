@@ -261,60 +261,33 @@ public class lv2
         System.out.println("result = " + result);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // 2진수 큰 수 찾기
     @Test
-    public void solution()
+    public void findBinary()
     {
-        int n = 999;
-        int answer = 0;
-        //n이 3일때
-        //f(3) = f(1)+f(2) = 1+1 = 2이므로 숫자 초기화
-        int num1 = 1;
-        int num2 = 1;
+        int num = 78;
+        int result = num;
 
-        if(n == 1 || n == 2)
+        boolean check = false;
+
+        String binary = Integer.toBinaryString(num);
+        binary = binary.replace("0", "");
+
+        String nextBinary = "";
+
+        while(!check)
         {
-            answer = 1;
-        }
-        else
-        {
-            for(int i = 3; i <= n; i++)
+            result++;
+
+            nextBinary = Integer.toBinaryString(result);
+            nextBinary = nextBinary.replace("0", "");
+
+            if(binary.length() == nextBinary.length())
             {
-                answer = (num1 + num2) % 1234567;
-                num1 = num2;//전전수
-                num2 = answer;//전수
-
-                System.out.println("a = " + answer + ", num1 = " + num1 + ", num2 = " + num2);
+                check = true;
             }
         }
 
-        System.out.println("answer = " + answer);
+        System.out.println("result = " + result);
     }
 }
