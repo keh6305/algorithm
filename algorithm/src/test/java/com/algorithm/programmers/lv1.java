@@ -3,9 +3,7 @@ package com.algorithm.programmers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.UpperCase;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Locale;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -322,5 +320,110 @@ public class lv1
         }
 
         System.out.println("result = " + result);
+    }
+
+    // 핸드폰 번호 가리기
+    @Test
+    public void blindPhone()
+    {
+        String phone = "01012345678";
+        String result = "";
+
+        for(int i = 0; i < phone.length() - 4; i++)
+        {
+            result += "*";
+        }
+
+        result = result + phone.substring(phone.length() - 4, phone.length());
+
+        System.out.println("result = " + result);
+    }
+
+    // 배열 숫자 나누기
+    @Test
+    public void diviseArray()
+    {
+        int arr[] = {2, 36, 1, 3};
+        int divisor = 3;
+
+        int[] result = {};
+
+        List<Integer> list = new ArrayList<Integer>();
+
+        for (int i = 0; i < arr.length; i++)
+        {
+            if (arr[i] % divisor == 0)
+            {
+                list.add(arr[i]);
+            }
+        }
+        
+        if(list.size() != 0)
+        {
+            result = new int[list.size()];
+
+            Collections.sort(list);
+
+            for(int i = 0; i < list.size(); i++)
+            {
+                result[i] = list.get(i);
+            }
+        }
+        else
+        {
+            result = new int[]{-1};
+        }
+        
+        System.out.print("result = ");
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.print("[" + result[i] + "]");
+        }
+        System.out.println();
+    }
+
+    // 최솟값 제거
+    @Test
+    public void removeMin()
+    {
+        int arr[] = {4, 3, 2, 1, 5};
+        int result[] = {};
+
+        if(arr.length == 1)
+        {
+            result = new int[]{-1};
+        }
+        else
+        {
+            result = new int[arr.length - 1];
+
+            int min = arr[0];
+            int index = 0;
+
+            for(int i = 0; i < arr.length; i++)
+            {
+                if(arr[i] < min)
+                {
+                     min = arr[i];
+                }
+            }
+
+            for(int i = 0; i < arr.length; i++)
+            {
+                if(arr[i] != min)
+                {
+                    result[index] = arr[i];
+
+                    index++;
+                }
+            }
+        }
+
+        System.out.print("result = ");
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.print("[" + result[i] + "]");
+        }
+        System.out.println();
     }
 }
