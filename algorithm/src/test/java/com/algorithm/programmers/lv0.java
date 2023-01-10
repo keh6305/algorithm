@@ -302,6 +302,29 @@ public class lv0
         }
     }
 
+    // 배열 자르기
+    @Test
+    public void splitArray()
+    {
+        int arr[] = {1, 2, 3, 4, 5};
+        int start = 1;
+        int end = 3;
+
+        int result[] = new int[end - start + 1];
+        int index = 0;
+
+        for(int i = start; i <= end; i++)
+        {
+            result[index] = arr[i];
+            index++;
+        }
+
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.println("result = " + result[i]);
+        }
+    }
+
     // 옹알이
     @Test
     public void babbling()

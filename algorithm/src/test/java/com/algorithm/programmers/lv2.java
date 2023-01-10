@@ -325,47 +325,44 @@ public class lv2
     @Test
     public void removePair()
     {
-        String str = "cdcd";
+        String str = "ccddc";
 
-        int result = -1;
-        int i = 0;
+        int result = 0;
+        int index = 0;
 
-        while(result == -1)
+        List<Character> list = new ArrayList<Character>();
+
+        for(int i = 0; i < str.length(); i++)
         {
-            if(str.length() > 2)
+            if(list.size() == 0)
             {
-                if(i < str.length() - 1)
-                {
-                    if((str.charAt(i) == str.charAt(i + 1)))
-                    {
-                        str = str.substring(0, i) + str.substring(i + 2, str.length());
+                list.add(str.charAt(i));
 
-                        i = 0;
-                    }
-                    else
-                    {
-                        i++;
-                    }
-                }
-                else
-                {
-                    result = 0;
-                }
+                index++;
             }
-            else if(str.length() == 2)
+            else
             {
-                if(str.charAt(i) == str.charAt(i + 1))
+                if(list.get(index - 1) == str.charAt(i))
                 {
-                    result = 1;
+                    list.remove(index - 1);
+
+                    index--;
                 }
                 else
                 {
-                    result = 0;
+                    list.add(str.charAt(i));
+
+                    index++;
                 }
             }
         }
 
-        System.out.println("str = " + str);
+        if(list.isEmpty())
+        {
+            result = 1;
+        }
+
+        System.out.println("list = " + list);
         System.out.println("result = " + result);
     }
 
