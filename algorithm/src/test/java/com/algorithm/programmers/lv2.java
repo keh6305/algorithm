@@ -291,7 +291,6 @@ public class lv2
         System.out.println("result = " + result);
     }
 
-
     // 카펫 배열 찾기
     @Test
     public void carpet()
@@ -320,6 +319,54 @@ public class lv2
         }
 
         System.out.println("result = [" + result[0] + "][" + result[1] +"]");
+    }
+
+    // 짝지어 제거
+    @Test
+    public void removePair()
+    {
+        String str = "cdcd";
+
+        int result = -1;
+        int i = 0;
+
+        while(result == -1)
+        {
+            if(str.length() > 2)
+            {
+                if(i < str.length() - 1)
+                {
+                    if((str.charAt(i) == str.charAt(i + 1)))
+                    {
+                        str = str.substring(0, i) + str.substring(i + 2, str.length());
+
+                        i = 0;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                else
+                {
+                    result = 0;
+                }
+            }
+            else if(str.length() == 2)
+            {
+                if(str.charAt(i) == str.charAt(i + 1))
+                {
+                    result = 1;
+                }
+                else
+                {
+                    result = 0;
+                }
+            }
+        }
+
+        System.out.println("str = " + str);
+        System.out.println("result = " + result);
     }
 
     // 행렬의 곱셈
