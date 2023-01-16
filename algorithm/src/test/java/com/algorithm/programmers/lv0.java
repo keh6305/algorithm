@@ -325,6 +325,42 @@ public class lv0
         }
     }
 
+    // 최대값 만들기
+    @Test
+    public void makeMax()
+    {
+        int arr[] = {0, 31, 24, 10, 1, 9};
+//        int arr[] = {1, 2, 3, 4, 5};
+        int result = 0;
+
+        int first = 0;
+        int second = 0;
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i] > second)
+            {
+                if(arr[i] > first)
+                {
+                    if(first > second)
+                    {
+                        second = first;
+                    }
+
+                    first = arr[i];
+                }
+                else
+                {
+                    second = arr[i];
+                }
+            }
+        }
+
+        result = first * second;
+
+        System.out.println("result = " + result);
+    }
+
     // 옹알이
     @Test
     public void babbling()
