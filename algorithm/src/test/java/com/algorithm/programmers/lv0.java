@@ -361,6 +361,41 @@ public class lv0
         System.out.println("result = " + result);
     }
 
+    // 특정문자 제거
+    @Test
+    public void splitChar()
+    {
+        String str = "abcdef";
+        String ch = "f";
+
+        String result = "";
+
+        result = str.replace(ch, "");
+
+        System.out.println("result = " + result);
+    }
+
+    // 삼각형 완성 1
+    @Test
+    public void triangle1()
+    {
+        int arr[] = {3, 6, 2};
+        int result = 0;
+
+        Arrays.sort(arr);
+
+        if(arr[2] < (arr[0] + arr[1]))
+        {
+            result = 1;
+        }
+        else
+        {
+            result = 2;
+        }
+
+        System.out.println("result = " + result);
+    }
+
     // 옹알이
     @Test
     public void babbling()
