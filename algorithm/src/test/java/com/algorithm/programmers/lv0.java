@@ -396,6 +396,68 @@ public class lv0
         System.out.println("result = " + result);
     }
 
+    // 문자 반복
+    @Test
+    public void repeatString()
+    {
+        String str = "hello";
+        int num = 5;
+
+        String result = "";
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            for(int j = 0; j < num; j++)
+            {
+                result += str.charAt(i);
+            }
+        }
+
+        System.out.println("result = " + result);
+    }
+
+    // 홀수 배열
+    @Test
+    public void oddNumberArray()
+    {
+        int num  = 10;
+
+        if(num % 2 == 0)
+        {
+            num = num / 2;
+        }
+        else
+        {
+            num = (num / 2) + 1;
+        }
+
+        int result[] = new int[num];
+
+        for (int i = 0; i < num; i++)
+        {
+            result[i] = (i * 2) + 1;
+        }
+
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.println("result = " + result[i]);
+        }
+    }
+
+    // 중앙값 구하기
+    @Test
+    public void centerNumber()
+    {
+        int arr[] = {1, 3, 5, 7, 4};
+        int result = 0;
+
+        Arrays.sort(arr);
+
+        result = arr[arr.length / 2];
+
+        System.out.println("result = " + result);
+    }
+
     // 옹알이
     @Test
     public void babbling()
