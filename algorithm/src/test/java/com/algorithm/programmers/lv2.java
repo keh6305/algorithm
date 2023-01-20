@@ -446,4 +446,27 @@ public class lv2
 
         System.out.println("result = [" + result[0] + "]" + "[" + result[1] + "]");
     }
+
+    // 구명보트
+    @Test
+    public void lifeboat()
+    {
+        int arr[] = {1, 2, 3, 4, 5, 6, 7};
+        int limit = 100;
+
+        int sum = 0;
+        int index = 0;
+        
+        Arrays.sort(arr);
+
+        while(sum <= limit)
+        {
+            sum = arr[index] + arr[arr.length - (index + 1)];
+
+            if(sum <= limit)
+            {
+                
+            }
+        }
+    }
 }
