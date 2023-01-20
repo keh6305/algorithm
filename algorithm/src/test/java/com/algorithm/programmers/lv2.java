@@ -396,4 +396,54 @@ public class lv2
             System.out.println();
         }
     }
+
+    // 끝말잇기
+    @Test
+    public void followup()
+    {
+        int num = 3;
+        int result[] = new int[2];
+
+        String arr[] = {"tank", "kick", "know", "wheel", "land", "dreamk", "kick", "mother", "robot", "tank"};
+
+        for1 : for(int i = 1; i < arr.length; i++)
+        {
+            if(arr[i - 1].charAt(arr[i - 1].length() - 1) != arr[i].charAt(0))
+            {
+                result[0] = (i % num) + 1;
+                result[1] = (i / num) + 1;
+
+                break for1;
+            }
+            else
+            {
+                for2 : for(int j = 0; j < i; j++)
+                {
+                    if(arr[j] == arr[i])
+                    {
+                        result[0] = (i % num) + 1;
+                        result[1] = (i / num) + 1;
+
+                        break for1;
+                    }
+                    else
+                    {
+                        if(arr[0] == arr[arr.length - 1])
+                        {
+                            result[0] = ((arr.length - 1) % num) + 1;
+                            result[1] = ((arr.length - 1) / num) + 1;
+                        }
+                        else
+                        {
+
+                            result[0] = 0;
+                            result[1] = 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        System.out.println("result = [" + result[0] + "]" + "[" + result[1] + "]");
+    }
 }
