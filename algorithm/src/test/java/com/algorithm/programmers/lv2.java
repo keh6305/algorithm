@@ -451,22 +451,30 @@ public class lv2
     @Test
     public void lifeboat()
     {
-        int arr[] = {1, 2, 3, 4, 5, 6, 7};
+        int arr[] = {70, 50, 80, 50};
         int limit = 100;
 
-        int sum = 0;
-        int index = 0;
+        int result = 0;
+        int max = arr.length - 1;
         
         Arrays.sort(arr);
 
-        while(sum <= limit)
+        for(int i = 0; i < max; i++)
         {
-            sum = arr[index] + arr[arr.length - (index + 1)];
-
-            if(sum <= limit)
+            if((arr[i] + arr[max]) <= limit)
             {
-                
+                max--;
+                result++;
+            }
+            else
+            {
+                max--;
+                i--;
             }
         }
+
+        result = result + (arr.length - (result * 2));
+
+        System.out.println("result = " + result);
     }
 }
