@@ -2,6 +2,10 @@ package com.algorithm.programmers;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class lv3
 {
     // 정수 삼각형
@@ -42,5 +46,45 @@ public class lv3
         }
 
         System.out.println("result = " + result);
+    }
+
+    // 이중우선순위큐
+    @Test
+    public void dualPriorityQueue()
+    {
+        String arr[] = {"I -45", "I 653", "D 1", "I -642", "I 45", "I 97", "D 1", "D -1", "I 333"};
+
+        int result[] = {0, 0};
+        List<Integer> list = new ArrayList<Integer>();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i].charAt(0) == 'I')
+            {
+                list.add(Integer.parseInt(arr[i].substring(2, arr[i].length())));
+
+                Collections.sort(list);
+            }
+            else
+            {
+                if(arr[i].substring(2, arr[i].length()).equals("1") && list.size() != 0)
+                {
+                    list.remove(list.size() - 1);
+                }
+                if(arr[i].substring(2, arr[i].length()).equals("-1") && list.size() != 0)
+                {
+                    list.remove(0);
+                }
+            }
+        }
+
+        if(list.size() != 0)
+        {
+            result[0] = list.get(list.size() - 1);
+            result[1] = list.get(0);
+        }
+
+        System.out.println("list = " + list);
+        System.out.println("result = [" + result[0] + "][" + result[1] + "]");
     }
 }
