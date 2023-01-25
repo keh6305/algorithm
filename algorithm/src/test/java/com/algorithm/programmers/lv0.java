@@ -458,6 +458,49 @@ public class lv0
         System.out.println("result = " + result);
     }
 
+    // 순서쌍
+    @Test
+    public void pair()
+    {
+        int num = 20;
+        int result = 0;
+
+        for(int i = 1; i <= 20; i++)
+        {
+            if(num % i == 0)
+            {
+                result++;
+            }
+        }
+
+        assertThat(result).isEqualTo(6);
+    }
+
+    // 가격 할인
+    @Test
+    public void discount()
+    {
+        int num = 150000;
+        int result = 0;
+
+        if(100000 <= num && num < 300000)
+        {
+            result = (int) (num * 0.95);
+        }
+        else if(300000 <= num && num < 500000)
+        {
+            result = (int) (num * 0.9);
+        }
+        else if(500000 <= num)
+        {
+            result = (int) (num * 0.8);
+        }
+        else
+        {
+            result = num;
+        }
+    }
+
     // 옹알이
     @Test
     public void babbling()
