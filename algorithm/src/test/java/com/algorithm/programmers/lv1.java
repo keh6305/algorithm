@@ -426,4 +426,28 @@ public class lv1
         }
         System.out.println();
     }
+
+    // 음양더하기
+    @Test
+    public void plusMinus()
+    {
+        int[] numArr = {9, 7, 13};
+        boolean[] signArr = {true, false, true};
+
+        int result = 0;
+
+        for(int i = 0; i < numArr.length; i++)
+        {
+            if(signArr[i])
+            {
+                result += numArr[i];
+            }
+            else
+            {
+                result -= numArr[i];
+            }
+        }
+
+        assertThat(result).isEqualTo(15);
+    }
 }

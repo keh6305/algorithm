@@ -501,6 +501,23 @@ public class lv0
         }
     }
 
+    // 자릿수 더하기
+    @Test
+    public void addDigit()
+    {
+        int num = 12345;
+        int result = 0;
+
+        String str = String.valueOf(num);
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            result += Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+
+        assertThat(result).isEqualTo(15);
+    }
+
     // 옹알이
     @Test
     public void babbling()

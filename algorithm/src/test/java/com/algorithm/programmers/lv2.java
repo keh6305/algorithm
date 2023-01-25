@@ -1,11 +1,14 @@
 package com.algorithm.programmers;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class lv2
 {
@@ -475,6 +478,76 @@ public class lv2
         }
 
         result = result + (arr.length - (result * 2));
+
+        System.out.println("result = " + result);
+    }
+
+    // 최소공배수
+    @Test
+    public void leastCommonMultiple()
+    {
+        int[] arr = {2, 6, 8, 14};
+        int result = 0;
+
+        boolean check = true;
+        int index = 1;
+        int length = 0;
+
+        Arrays.sort(arr);
+
+        while(check)
+        {
+            for(int i = 0; i < arr.length; i++)
+            {
+                if(((arr[arr.length - 1] * index) % arr[i]) == 0)
+                {
+                    length++;
+                }
+            }
+
+            if(length == arr.length)
+            {
+                check = false;
+            }
+            else
+            {
+                index++;
+                length = 0;
+            }
+        }
+
+        result = arr[arr.length - 1] * index;
+
+        assertThat(result).isEqualTo(168);
+    }
+
+    // 대진표
+    @Test
+    public void barket()
+    {
+        int num = 8;
+        int a = 4;
+        int b = 7;
+
+        int result = 0;
+
+        boolean check = true;
+
+        while (check)
+        {
+            if((a + 1) / 2 == (b + 1) / 2)
+            {
+                check = false;
+            }
+            else
+            {
+                num /= 2;
+                a = (a / 2) + (a % 2);
+                b = (b / 2) + (b % 2);
+            }
+
+            result++;
+        }
 
         System.out.println("result = " + result);
     }
