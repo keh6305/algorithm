@@ -450,4 +450,25 @@ public class lv1
 
         assertThat(result).isEqualTo(15);
     }
+
+    // 가운데 글자 가져오기
+    @Test
+    public void centerWord()
+    {
+        String str = "123456";
+        String result = "";
+
+        int length = str.length();
+
+        if(length % 2 == 1)
+        {
+            result = String.valueOf(str.charAt(length / 2));
+        }
+        else
+        {
+            result = str.substring((length / 2) - 1, (length / 2) + 1);
+        }
+
+        System.out.println("result = " + result);
+    }
 }
