@@ -1,5 +1,6 @@
 package com.algorithm.programmers;
 
+import org.junit.experimental.max.MaxHistory;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -516,6 +517,48 @@ public class lv0
         }
 
         assertThat(result).isEqualTo(15);
+    }
+
+    // 문자열 포함
+    @Test
+    public void containString()
+    {
+        String str = "ab6CDE443fgh22iJKlmn1o";
+        String word = "6CDE4";
+
+        int result = (str.contains(word) ? 1 : 2);
+
+        System.out.println("result = " + result);
+    }
+
+    // 제곱수 판별하기
+    @Test
+    public void squareNumber()
+    {
+        int num = 144;
+        double sqrt = Math.sqrt(num);
+
+        int result = (sqrt == (int)sqrt) ? 1 : 2;
+
+        System.out.println("result = " + result);
+    }
+
+    // 문장 속 자연수
+    @Test
+    public void stringOfNumber()
+    {
+        String str = "aAb1B2cC34oOp";
+        int result = 0;
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            if(Character.getNumericValue(str.charAt(i)) < 10)
+            {
+                result += Character.getNumericValue(str.charAt(i));
+            }
+        }
+
+        System.out.println("result = " + result);
     }
 
     // 옹알이
