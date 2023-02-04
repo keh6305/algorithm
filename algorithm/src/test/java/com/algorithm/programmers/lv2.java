@@ -3,6 +3,7 @@ package com.algorithm.programmers;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -550,5 +551,128 @@ public class lv2
         }
 
         System.out.println("result = " + result);
+    }
+
+    // 순간이동
+    @Test
+    public void teleport()
+    {
+        int num = 5000;
+        int teleport = 1;
+
+        int result = 0;
+
+        while(0 < num)
+        {
+            if((teleport * 2) <= num)
+            {
+                teleport *= 2;
+            }
+            else
+            {
+                num = num - teleport;
+                teleport = 1;
+                result++;
+            }
+        }
+
+        System.out.println("result = " + result);
+    }
+
+    // 멀리뛰기(피보나치수)
+    @Test
+    public void jump()
+    {
+        int num = 5;
+        long result = 0;
+
+        int num1 = 1;
+        int num2 = 0;
+
+        for(int i = 2; i <= num; i++)
+        {
+            result = num1 + num2;
+
+            num2 = num1;
+            num1 = (int) result;
+        }
+
+        System.out.println("result = " + result);
+    }
+
+
+
+
+
+    // imwep
+    @Test
+    public void test()
+    {
+        int n = 1;
+        int t = 100000;
+
+        String str1 = String.valueOf(n);
+
+        if(n < 0)
+        {
+            str1 = String.valueOf(n * -1);
+        }
+
+        String str2 = str1;
+
+        int length = (int)(Math.log10(n) + 1);
+        long pow = (long) Math.pow(10, (Math.log10(n) + 1));
+
+        System.out.println("length = " + length);
+        System.out.println("pow = " + pow);
+        
+        long sum = 1;
+        int index = 0;
+
+//        while (sum % t != 0)
+//        {
+//            try
+//            {
+//                System.out.println("test = " + (sum % t));
+//                sum = Long.parseLong(str2);
+//                str2 += str1;
+//                index++;
+//            }
+//            catch (Exception e)
+//            {
+//                System.out.println("e = " + e);
+//                index = -1;
+//                break;
+//            }
+//        }
+
+        while (sum % t != 0)
+        {
+            try
+            {
+                System.out.println("sum = " + sum);
+                System.out.println("sum % t = " + (sum % t));
+
+                if(sum % t < 0)
+                {
+                    index = -1;
+                    break;
+                }
+                else
+                {
+                    sum = (sum * pow) + n;
+                    index++;
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println("e = " + e);
+                index = -1;
+                break;
+            }
+        }
+
+        System.out.println("sum = " + sum);
+        System.out.println("index = " + index);
     }
 }
