@@ -87,4 +87,44 @@ public class lv3
         System.out.println("list = " + list);
         System.out.println("result = [" + result[0] + "][" + result[1] + "]");
     }
+
+    // 최고의 집합
+    @Test
+    public void bestArray()
+    {
+        int n = 6;
+        int s = 100;
+
+        int[] result;
+
+        if(n > s)
+        {
+            result = new int[]{-1};
+        }
+        else
+        {
+            result = new int[n];
+
+            int num = s % n;
+
+            for(int i = 0; i < n; i++)
+            {
+                if(i < (n - num))
+                {
+                    result[i] = s / n;
+                }
+                else
+                {
+                    result[i] = (s / n) + 1;
+                }
+            }
+        }
+
+        System.out.print("result = ");
+        for(int i = 0; i < n; i++)
+        {
+            System.out.print("[" + result[i] + "]");
+        }
+        System.out.println();
+    }
 }

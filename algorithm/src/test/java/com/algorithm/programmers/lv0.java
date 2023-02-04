@@ -561,6 +561,35 @@ public class lv0
         System.out.println("result = " + result);
     }
 
+    // 모음 제거
+    @Test
+    public void removeVowel()
+    {
+        String str = "nice to meet you";
+        String result = "";
+
+        result = str.replaceAll("[aeiou]", "");
+
+        System.out.println("result = " + result);
+    }
+
+    // 증식
+    @Test
+    public void breeding()
+    {
+        int n = 7;
+        int s = 15;
+
+        int result = n;
+
+        for(int i = 1; i <= s; i++)
+        {
+            result = result * 2;
+        }
+
+        System.out.println("result = " + result);
+    }
+
     // 옹알이
     @Test
     public void babbling()
