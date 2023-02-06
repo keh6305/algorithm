@@ -600,79 +600,33 @@ public class lv2
         System.out.println("result = " + result);
     }
 
-
-
-
-
-    // imwep
+    // h-index
     @Test
-    public void test()
+    public void hindex()
     {
-        int n = 1;
-        int t = 100000;
+        int[] arr = {3, 0, 6, 1, 5};
 
-        String str1 = String.valueOf(n);
+        int hnum = 0;
+        int result = 0;
 
-        if(n < 0)
+        for(int i = 0; i <= arr.length; i++)
         {
-            str1 = String.valueOf(n * -1);
-        }
-
-        String str2 = str1;
-
-        int length = (int)(Math.log10(n) + 1);
-        long pow = (long) Math.pow(10, (Math.log10(n) + 1));
-
-        System.out.println("length = " + length);
-        System.out.println("pow = " + pow);
-        
-        long sum = 1;
-        int index = 0;
-
-//        while (sum % t != 0)
-//        {
-//            try
-//            {
-//                System.out.println("test = " + (sum % t));
-//                sum = Long.parseLong(str2);
-//                str2 += str1;
-//                index++;
-//            }
-//            catch (Exception e)
-//            {
-//                System.out.println("e = " + e);
-//                index = -1;
-//                break;
-//            }
-//        }
-
-        while (sum % t != 0)
-        {
-            try
+            for(int j = 0; j < arr.length; j++)
             {
-                System.out.println("sum = " + sum);
-                System.out.println("sum % t = " + (sum % t));
-
-                if(sum % t < 0)
+                if(i <= arr[j])
                 {
-                    index = -1;
-                    break;
-                }
-                else
-                {
-                    sum = (sum * pow) + n;
-                    index++;
+                    hnum++;
                 }
             }
-            catch (Exception e)
+
+            if(result <= hnum && i <= hnum)
             {
-                System.out.println("e = " + e);
-                index = -1;
-                break;
+                result = i;
             }
+
+            hnum = 0;
         }
 
-        System.out.println("sum = " + sum);
-        System.out.println("index = " + index);
+        System.out.println("result = " + result);
     }
 }

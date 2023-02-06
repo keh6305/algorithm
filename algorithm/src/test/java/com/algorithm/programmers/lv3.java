@@ -127,4 +127,21 @@ public class lv3
         }
         System.out.println();
     }
+
+    @Test
+    public void network()
+    {
+        int num = 3;
+        int[][] arr = {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
+
+        boolean[] con = new boolean[arr.length];
+
+        for(int i = 0; i < con.length; i++)
+        {
+            if(con[i] == false)
+            {
+
+            }
+        }
+    }
 }
