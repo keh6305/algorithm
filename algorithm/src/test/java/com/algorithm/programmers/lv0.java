@@ -590,6 +590,28 @@ public class lv0
         System.out.println("result = " + result);
     }
 
+    // 대소문자 변경
+    @Test
+    public void caseConversion()
+    {
+        String str = "abCdEfghIJ";
+        String result = "";
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            if(Character.isUpperCase(str.charAt(i)))
+            {
+                result += Character.toLowerCase(str.charAt(i));
+            }
+            else if(Character.isLowerCase(str.charAt(i)))
+            {
+                result += Character.toUpperCase(str.charAt(i));
+            }
+        }
+
+        System.out.println("result = " + result);
+    }
+
     // 옹알이
     @Test
     public void babbling()
