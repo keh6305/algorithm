@@ -3,6 +3,7 @@ package com.algorithm.programmers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.UpperCase;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -467,6 +468,26 @@ public class lv1
         else
         {
             result = str.substring((length / 2) - 1, (length / 2) + 1);
+        }
+
+        System.out.println("result = " + result);
+    }
+
+    // 문자열 내림차순 정렬
+    @Test
+    public void stringSortDesc()
+    {
+        String str = "Zbcdefg";
+
+        String[] arr = str.split("");
+
+        Arrays.sort(arr, Collections.reverseOrder());
+
+        String result = "";
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            result += arr[i];
         }
 
         System.out.println("result = " + result);
