@@ -613,41 +613,73 @@ public class lv0
         System.out.println("result = " + result);
     }
 
-    // 문자열 정렬하기
+    // 문자열 정렬하기 ver.1
     @Test
-    public void sortStringNumber()
+    public void sortStringNumber1()
     {
         String str = "hiZ12392";
 
-        List<Integer> list1 = new ArrayList<Integer>();
-        List<Integer> list2 = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<Integer>();
 
         for(int i = 0; i < str.length(); i++)
         {
             if(0 <= (int)(str.charAt(i) - '0') && (int)(str.charAt(i) - '0') <= 9)
             {
-                list1.add((int)(str.charAt(i) - '0'));
+                list.add((int)(str.charAt(i) - '0'));
             }
         }
+
+        Collections.sort(list);
+
+        int[] result = new int[list.size()];
+
+        for(int i = 0; i < list.size(); i++)
+        {
+            result[i] = list.get(i);
+        }
+
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.println("result = " + result[i]);
+        }
+    }
+
+    // 문자열 정렬하기 ver.2
+    @Test
+    public void sortStringNumber2()
+    {
+        String str = "hiZ12392";
+
+        List<Integer> list = new ArrayList<Integer>();
+
         for(int i = 0; i < str.length(); i++)
         {
             if(0 <= Character.getNumericValue(str.charAt(i)) && Character.getNumericValue(str.charAt(i)) <= 9)
             {
-                list2.add(Character.getNumericValue(str.charAt(i)));
+                list.add(Character.getNumericValue(str.charAt(i)));
             }
         }
 
-        Collections.sort(list1);
-        Collections.sort(list2);
+        Collections.sort(list);
 
-        int[] result1 = new int[list1.size()];
-        int[] result2 = new int[list2.size()];
+        int[] result = new int[list.size()];
 
-        for(int i = 0; i < list1.size(); i++)
+        for(int i = 0; i < list.size(); i++)
         {
-            result1[i] = list1.get(i);
-            result2[i] = list2.get(i);
+            result[i] = list.get(i);
         }
+
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.println("result = " + result[i]);
+        }
+    }
+
+    // 문자열 정렬하기 ver.3
+    @Test
+    public void sortStringNumber3()
+    {
+        String str = "hiZ12392";
 
         System.out.println("str.replaceAll(\"\\\\D\", \"\") = " + str.replaceAll("\\D", ""));
         System.out.println("str.replaceAll(\"[A-z]\", \"\") = " + str.replaceAll("[A-z]", ""));
@@ -655,21 +687,55 @@ public class lv0
 
         str = str.replaceAll("[a-z]","");
 
-        int[] result3 = new int[str.length()];
+        int[] result = new int[str.length()];
 
         for(int i = 0; i < str.length(); i++)
         {
-            result3[i] = Character.getNumericValue(str.charAt(i));
+            result[i] = Character.getNumericValue(str.charAt(i));
         }
 
-        Arrays.sort(result3);
+        Arrays.sort(result);
 
-        for(int i = 0; i < result1.length; i++)
+        for(int i = 0; i < result.length; i++)
         {
-            System.out.println("result1 = " + result1[i]);
+            System.out.println("result = " + result[i]);
+        }
+    }
+
+    // n의 배수 고르기
+    @Test
+    public void checkMultiple()
+    {
+        int[] arr = {4, 5, 6, 7, 8, 9, 10, 11, 12};
+        int num = 3;
+
+        List<Integer> list = new ArrayList<Integer>();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            if((arr[i] % 3) == 0)
+            {
+                list.add(arr[i]);
+            }
+        }
+
+        int[] result = new int[list.size()];
+
+        for(int i = 0; i < list.size(); i++)
+        {
+            result[i] = list.get(i);
+        }
+
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.println("result = " + result[i]);
+        }
+
+        int[] result2 = Arrays.stream(arr).filter(value -> value % num == 0).toArray();
+
+        for(int i = 0; i < result2.length; i++)
+        {
             System.out.println("result2 = " + result2[i]);
-            System.out.println("result3 = " + result3[i]);
-            System.out.println();
         }
     }
 

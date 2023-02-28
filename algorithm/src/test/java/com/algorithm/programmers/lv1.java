@@ -492,4 +492,31 @@ public class lv1
 
         System.out.println("result = " + result);
     }
+
+    // 약수의 개수와 덧셈, 뺄셈
+    @Test
+    public void calculateDivisor()
+    {
+        int min = 13;
+        int max = 17;
+        int result = 0;
+        int count = 0;
+
+        for(int num = min; num <= max; num++)
+        {
+            count = 0;
+
+            for(int i = 1; i <= num; i++)
+            {
+                if((num % i) == 0)
+                {
+                    count++;
+                }
+            }
+
+            result += (count % 2) == 0 ? num : (num * -1);
+        }
+
+        System.out.println("result = " + result);
+    }
 }
