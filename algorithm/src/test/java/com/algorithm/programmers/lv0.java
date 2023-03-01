@@ -1,6 +1,5 @@
 package com.algorithm.programmers;
 
-import org.junit.experimental.max.MaxHistory;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -736,6 +735,28 @@ public class lv0
         for(int i = 0; i < result2.length; i++)
         {
             System.out.println("result2 = " + result2[i]);
+        }
+    }
+
+    // 직각 삼각형 출력하기
+    @Test
+    public void printTriangle()
+    {
+        int num = 3;
+
+        for(int i = 0; i < num; i++)
+        {
+            for(int j = 0; j <= i; j++)
+            {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        for(int i = 1; i <= num; i++)
+        {
+            System.out.println("*".repeat(i));
         }
     }
 
