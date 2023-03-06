@@ -326,9 +326,9 @@ public class lv0
         }
     }
 
-    // 최대값 만들기
+    // 최대값 만들기1
     @Test
-    public void makeMax()
+    public void makeMaxNumber1()
     {
         int arr[] = {0, 31, 24, 10, 1, 9};
 //        int arr[] = {1, 2, 3, 4, 5};
@@ -358,8 +358,23 @@ public class lv0
         }
 
         result = first * second;
+        
+        Arrays.sort(arr);
 
+        System.out.println("arr[arr.length - 1] * arr[arr.length - 2] = " + arr[arr.length - 1] * arr[arr.length - 2]);
         System.out.println("result = " + result);
+    }
+
+    // 쵀대값 만들기2
+    @Test
+    public void makeMaxNumber2()
+    {
+        int[] arr = {1, 2, -3, 4, -5};
+
+        Arrays.sort(arr);
+
+        System.out.println((arr[0] * arr[1]) < (arr[arr.length - 1] * arr[arr.length - 2]) ? (arr[arr.length - 1] * arr[arr.length - 2]) : (arr[0] * arr[1]));
+        System.out.println("Math.max() = " + Math.max((arr[0] * arr[1]), (arr[arr.length - 1] * arr[arr.length - 2])));
     }
 
     // 특정문자 제거
