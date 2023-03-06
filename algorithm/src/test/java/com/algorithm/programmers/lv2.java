@@ -4,10 +4,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -115,9 +112,9 @@ public class lv2
         System.out.println("result = " + result);
     }
 
-    // 올바른 괄호 확인
+    // 올바른 괄호 확인 ver.1
     @Test
-    public void correctBracket()
+    public void correctBracket1()
     {
         String str = "()())(()";
 
@@ -158,14 +155,41 @@ public class lv2
             }
         }
 
-        if(num == 0)
+        result = (num == 0) ? true : false;
+
+        System.out.println("result = " + result);
+    }
+
+    // 올바른 괄호 확인 ver.2
+    @Test
+    public void correctBracket2()
+    {
+        String str = "()()()";
+
+        boolean result = true;
+        Stack<Character> stack = new Stack<Character>();
+
+        try
         {
-            result = true;
+            for(int i = 0; i < str.length(); i++)
+            {
+                if(str.charAt(i) == '(')
+                {
+                    stack.push('(');
+                }
+                else
+                {
+                    stack.pop();
+                }
+            }
         }
-        else
+        catch (Exception e)
         {
-            result = false;
+            System.out.println("error = " + e);
         }
+
+        System.out.println("stack.empty() = " + stack.empty());
+        System.out.println("stack.isEmpty() = " + stack.isEmpty());
 
         System.out.println("result = " + result);
     }
@@ -625,6 +649,171 @@ public class lv2
             }
 
             hnum = 0;
+        }
+
+        System.out.println("result = " + result);
+    }
+
+    // 괄호 회전하기
+    @Test
+    public void twistBracket()
+    {
+        String str = "[](){}" ;
+
+        int a = 0;
+        int b = 0;
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            a += checkBracket(str.substring(i, str.length()) + str.substring(0, i));
+            b += checkBracket2(str.substring(i, str.length()) + str.substring(0, i));
+            System.out.println("a = " + a);
+            System.out.println("b = " + b);
+        }
+
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+    }
+
+    public int checkBracket(String str)
+    {
+        int a = 0;
+        int b = 0;
+        int c = 0;
+
+        for(int i = 0; i < str.length(); i++)
+        {
+            if(str.charAt(i) == '[')
+            {
+                a++;
+            }
+            else if(str.charAt(i) == '{')
+            {
+                b++;
+            }
+            else if(str.charAt(i) == '(')
+            {
+                c++;
+            }
+            else if(str.charAt(i) == ']' && (0 < a))
+            {
+                a--;
+            }
+            else if(str.charAt(i) == '}' && (0 < b))
+            {
+                b--;
+            }
+            else if(str.charAt(i) == ')' && (0 < c))
+            {
+                c--;
+            }
+            else
+            {
+                a++;
+
+                break;
+            }
+        }
+
+        if(a + b + c != 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public int checkBracket2(String str)
+    {
+        System.out.println("str = " + str);
+
+        Stack<Character> stack = new Stack<>();
+
+        try
+        {
+            for(int i = 0; i < str.length(); i++)
+            {
+                if(str.charAt(i) == '[' || str.charAt(i) == '{' || str.charAt(i) == '(')
+                {
+                    stack.add(str.charAt(i));
+                }
+                else if(str.charAt(i) == ']')
+                {
+                    if(stack.peek() == '[')
+                    {
+                        stack.pop();
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else if(str.charAt(i) == '}')
+                {
+                    if(stack.peek() == '{')
+                    {
+                        stack.pop();
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else if(str.charAt(i) == ')')
+                {
+                    if(stack.peek() == '(')
+                    {
+                        stack.pop();
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println("error = " + e);
+
+            return 0;
+        }
+
+        return stack.isEmpty() ? 1 : 0;
+    }
+
+    // 귤 고르기
+    @Test
+    public void pickMandarin()
+    {
+        int[] arr = {1, 3, 2, 5, 4, 5, 2, 3, 2};
+        int num = 6;
+
+        int result = 0;
+
+        Arrays.sort(arr);
+
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+        }
+
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
+
+        list.sort(Map.Entry.comparingByValue());
+
+        for(int i = list.size() - 1; i >= 0; i--)
+        {
+            if(num > 0)
+            {
+                num -= list.get(i).getValue();
+
+                result++;
+            }
         }
 
         System.out.println("result = " + result);
