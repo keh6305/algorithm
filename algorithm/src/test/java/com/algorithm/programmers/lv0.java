@@ -775,6 +775,21 @@ public class lv0
         }
     }
 
+    // 인덱스 바꾸기
+    @Test
+    public void changeIndex()
+    {
+        String str = "hello";
+        char[] arr = str.toCharArray();
+
+        arr[1] = str.charAt(2);
+        arr[2] = str.charAt(1);
+
+        String result = String.valueOf(arr);
+
+        System.out.println("result = " + result);
+    }
+
     // 옹알이
     @Test
     public void babbling()
