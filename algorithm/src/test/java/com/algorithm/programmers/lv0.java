@@ -787,7 +787,14 @@ public class lv0
 
         String result = String.valueOf(arr);
 
+
+        List<String> list = new ArrayList<>(List.of(str.split("")));
+        Collections.swap(list, 1, 2);
+
+        String answer = String.join("", list);
+        
         System.out.println("result = " + result);
+        System.out.println("answer = " + answer);
     }
 
     // 옹알이
