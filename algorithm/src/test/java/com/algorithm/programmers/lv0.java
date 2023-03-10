@@ -797,6 +797,47 @@ public class lv0
         System.out.println("answer = " + answer);
     }
 
+    // 배열 회전시키기
+    @Test
+    public void turnArray()
+    {
+        int[] arr = {1, 2, 3};
+        String str = "left";
+
+        int[] result = new int[arr.length];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(str.equals("right"))
+            {
+                if(i == 0)
+                {
+                    result[i] = arr[arr.length - 1];
+                }
+                else
+                {
+                    result[i] = arr[i - 1];
+                }
+            }
+            else
+            {
+                if(i == (arr.length - 1))
+                {
+                    result[i] = arr[0];
+                }
+                else
+                {
+                    result[i] = arr[i + 1];
+                }
+            }
+        }
+        
+        for(int i = 0; i < result.length; i++)
+        {
+            System.out.println("result[i] = " + result[i]);
+        }
+    }
+
     // 옹알이
     @Test
     public void babbling()
